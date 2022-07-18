@@ -175,7 +175,7 @@ export default function Header({ handleDrawerToggle, handleOpenUserMenu, handleC
                 }}
 
             >
-                <Toolbar>
+                <Toolbar sx={{  p: { xs: '0' } }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -185,11 +185,9 @@ export default function Header({ handleDrawerToggle, handleOpenUserMenu, handleC
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        Facility Management System
-                    </Typography>
+               
 
-                    <Search>
+                    <Search >
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>

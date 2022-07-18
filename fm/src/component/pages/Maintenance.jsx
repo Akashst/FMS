@@ -6,6 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Avatar, IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const bull = (
     <Box
@@ -25,13 +26,22 @@ export default function Maintenance() {
                     <Typography variant="h5" component="div">
                         Maintenance
                     </Typography>
-                    <Typography variant="span" component="">
+                    <Link to="/employee" sx={{ textDecoration: 'none' }}> View All</Link>
+
+                    {/* <Typography variant="span" component="">
                         View All
-                    </Typography>
+                    </Typography> */}
                 </Box>
-                <Typography sx={{ mb: 1.5 }} color="primary">
-                    active users
-                </Typography>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Typography sx={{ mb: 1.5 }} color="primary">
+                        active users
+                    </Typography>
+                    <Typography sx={{ mb: 1.5 }} color="primary">
+                        Active Engineers
+                    </Typography>
+
+                </Box>
+                <Box sx={{ display: 'flex',justifyContent: 'space-between' }}>
                 <Box sx={{ display: 'flex',  }}>
                     <IconButton  sx={{ p: 0, m: 1 }} >
                         <Avatar alt="Remy Sharp" src="https://media-exp1.licdn.com/dms/image/C5603AQFYK1_6MheOfw/profile-displayphoto-shrink_200_200/0/1611945104599?e=1659571200&v=beta&t=QXMhhyRBh6nDxT87U92zYDp_Ru53_m7rCchsW8j5fto" sx={{ width: "2.2rem", height: "2.2rem", backgroundColor: "purple" }} />
@@ -43,6 +53,12 @@ export default function Maintenance() {
                         </IconButton>
                     </IconButton>
                 </Box>
+                    <Box>
+                        <IconButton sx={{ p: 0, m: 1 }} >
+                            <Avatar alt="Remy Sharp" src="https://media-exp1.licdn.com/dms/image/C5603AQFYK1_6MheOfw/profile-displayphoto-shrink_200_200/0/1611945104599?e=1659571200&v=beta&t=QXMhhyRBh6nDxT87U92zYDp_Ru53_m7rCchsW8j5fto" sx={{ width: "2.2rem", height: "2.2rem", backgroundColor: "purple" }} />
+                        </IconButton>
+                        </Box>
+                        </Box>
             </CardContent>
             <CardActions>
                 <Button size="small">Learn More</Button>
