@@ -1,11 +1,12 @@
 import logo from './logo.svg';
-import {useState} from 'react'
+import { useState, createContext } from 'react'
 import './App.css';
 import ResponsiveDrawer from './component/pages/ResponsiveDrawer';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import Admin from './component/pages/Admin';
 import Employee from './component/pages/Employee';
 import { Box, Button, Modal } from '@mui/material';
+import ChildModal from './component/pages/ChildModal';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -25,10 +26,12 @@ const style = {
     
    
 
+export const UserContext = createContext({})
 
 
 
 function App() {
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -38,29 +41,30 @@ function App() {
   };
   return (
     <div className="App">
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          hello
-        </Box>
-      </Modal>
+      <UserContext.Provider value={{ handleOpen, handleClose, open, setOpen }}>
+      <ChildModal />
+
+      </UserContext.Provider>
+
+      <UserContext.Provider value={{ handleOpen, handleClose,open, setOpen }}>
+        
+    
+
       <BrowserRouter>
         {/* <Router> */}
           <Routes>
 
-            <Route path='/' element={<ResponsiveDrawer handleOpen={handleOpen}/>} />
+            <Route path='/' element={<ResponsiveDrawer />} />
           <Route path='/' element={<Employee />} />
 
-
+        
 
 
           </Routes>
         {/* </Router> */}
       </BrowserRouter>
+      </UserContext.Provider>
+
     </div>
   );
 }

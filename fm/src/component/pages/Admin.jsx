@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useContext } from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -7,6 +7,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Avatar, IconButton } from '@mui/material';
 import {Link} from 'react-router-dom'
+import { UserContext } from '../../App';
+
 
 const bull = (
     <Box
@@ -17,7 +19,10 @@ const bull = (
     </Box>
 );
 
-export default function Admin({handleOpen}) {
+export default function Admin() {
+    const { handleOpen, handleClose, open, setOpen } = useContext(UserContext);
+    console.log(open);
+
     return (
         <Card sx={{ minWidth: ' 100%', height: "80%" }}>
             <CardContent>
@@ -36,7 +41,7 @@ export default function Admin({handleOpen}) {
                 </Typography>
                 <Box sx={{ display: 'flex', }}>
                     <IconButton sx={{ p: 0, m: 1 }} >
-                        {/* <Link to="/employee"> */}
+                        {/* <Link to="/modal"> */}
                         <Avatar onClick={handleOpen} alt="Remy Sharp" src="https://media-exp1.licdn.com/dms/image/C5603AQFYK1_6MheOfw/profile-displayphoto-shrink_200_200/0/1611945104599?e=1659571200&v=beta&t=QXMhhyRBh6nDxT87U92zYDp_Ru53_m7rCchsW8j5fto" sx={{ width: "2.2rem", height: "2.2rem", backgroundColor: "purple" }} />
                         {/* </Link> */}
                     </IconButton>

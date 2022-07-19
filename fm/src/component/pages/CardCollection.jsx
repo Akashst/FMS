@@ -16,7 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function CardCollection({handleOpen}) {
+export default function CardCollection() {
     return (
         <Box sx={{ width: '100%' }}>
             <Grid container rowSpacing={1} columnSpacing={{ md: 1, sm: 2, md: 3 }}>
@@ -30,7 +30,7 @@ export default function CardCollection({handleOpen}) {
                     <Maintenance />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
-                    <Admin handleOpen={handleOpen }/>
+                    <Admin />
                 </Grid>
             </Grid>
         </Box>
